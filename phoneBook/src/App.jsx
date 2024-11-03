@@ -53,6 +53,7 @@ const App = () => {
     personServices.delete(id).then(console.log("Deleted"));
     setPersons(persons.filter((person) => person.id != id));
   }
+
   return (
     <div>
       <h2>Phonebook</h2>

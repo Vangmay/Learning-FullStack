@@ -22,3 +22,10 @@ Date - 1st October 2024 to 31 December 2024
 - Created phoneBook application
 - Able to perform CRUD operations on a simple JSON Server
 - Finished part 2
+
+## Week 5
+
+- Nov 3 2024
+  - How to build a barebones Node and Express.js backedn server
+  - Handling entities: Add, Delete, Get, Update
+  - What are middlewares and how to write your own
