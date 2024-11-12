@@ -8,3 +8,12 @@
 11 November 2024
 
 - Finished all the exercises from part 1
+
+12 November 2024
+
+- Started part 2
+- Finished a, b + exercises
+- Learnt about Map
+- More on managing state
+- Implemented a filter
+- Very cool
