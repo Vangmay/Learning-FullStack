@@ -17,3 +17,9 @@
 - More on managing state
 - Implemented a filter
 - Very cool
+
+13 November 2024
+
+- Finished part 2
+- Finished the exercises
+- Learned about handling data from server/REST Api
