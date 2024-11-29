@@ -23,3 +23,7 @@
 - Finished part 2
 - Finished the exercises
 - Learned about handling data from server/REST Api
+
+29 November 2024 -> Exams Over, we are back again
+
+- How to create a basic HTTP Server using node.js
