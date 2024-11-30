@@ -1,29 +1,11 @@
 # Learning logs
 
-10 November 2024
+- Ideal time: 30th November - 14th December
 
-- Learned the basics of react
-- Finished up the Unicafe exercises
+30th Novemember
 
-11 November 2024
-
-- Finished all the exercises from part 1
-
-12 November 2024
-
-- Started part 2
-- Finished a, b + exercises
-- Learnt about Map
-- More on managing state
-- Implemented a filter
-- Very cool
-
-13 November 2024
-
-- Finished part 2
-- Finished the exercises
-- Learned about handling data from server/REST Api
-
-29 November 2024 -> Exams Over, we are back again
-
-- How to create a basic HTTP Server using node.js
+- Getting started with react
+- Rendering
+- Conditional rendering
+- States
+- Finished Part 1 + Exercises
