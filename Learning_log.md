@@ -11,3 +11,5 @@
 - Finished Part 1 + Exercises
 - Completed half of part 2
 - Finished exercises till 2.10
+- Fetching data
+- Altering data on server
