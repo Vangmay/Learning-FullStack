@@ -9,3 +9,5 @@
 - Conditional rendering
 - States
 - Finished Part 1 + Exercises
+- Completed half of part 2
+- Finished exercises till 2.10
