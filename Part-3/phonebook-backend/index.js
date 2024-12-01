@@ -1,6 +1,7 @@
 const express = require("express");
 var morgan = require("morgan");
 const cors = require("cors");
+const Person = require("./models/person");
 const app = express();
 app.use(cors());
 
@@ -56,29 +57,37 @@ const welcomeMessage = (request, response) => {
 };
 
 const getPersons = (request, response) => {
-  response.json(persons);
+  Person.find({}).then((persons) => {
+    response.json(persons);
+  });
 };
 
 const getPersonById = (req, res) => {
-  const id = req.params.id;
-  const person = persons.find((person) => person.id == id);
-  if (person) {
+  // const id = req.params.id;
+  // const person = persons.find((person) => person.id == id);
+  // if (person) {
+  //   res.json(person);
+  // } else {
+  //   res.status(404).end();
+  // }
+  Person.findById(req.params.id).then((person) => {
     res.json(person);
-  } else {
-    res.status(404).end();
-  }
+  });
 };
 
 const deletePerson = (request, response) => {
-  const id = request.params.id;
-  persons = persons.filter((person) => id != person.id);
-  response.status(204).end();
+  Person.findByIdAndDelete(request.params.id)
+    .then((result) => {
+      response.status(204).end();
+    })
+    .catch((error) => {
+      next(error);
+    });
 };
 
-const getInfo = (req, res) => {
-  res.send(
-    `<p>Phonebook has info for ${persons.length} people</p>  <p>${Date()}</p>`
-  );
+const getInfo = async (req, res) => {
+  const count = await Person.countDocuments({});
+  res.send(`<p>Phonebook has info for ${count} people</p>  <p>${Date()}</p>`);
 };
 
 const addPerson = (request, response) => {
@@ -93,15 +102,43 @@ const addPerson = (request, response) => {
     response.json({ error: "Name shall be unique" });
   }
 
-  const newPerson = {
+  const newPerson = new Person({
     name: body.name,
     number: body.number,
-    id: generateId(),
-  };
+  });
 
-  persons = persons.concat(newPerson);
-  response.json(newPerson);
+  newPerson.save().then((savedPerson) => {
+    persons = persons.concat(newPerson);
+    response.json(newPerson);
+  });
 };
+
+const updatePerson = (request, response) => {
+  const body = request.body;
+  const person = {
+    name: body.name,
+    number: body.number,
+  };
+  Person.findByIdAndUpdate(request.params.id, person, { new: true })
+    .then((updatedPerson) => {
+      response.json(updatedPerson);
+    })
+    .catch((error) => next(error));
+};
+
+const errorHandler = (error, request, response, next) => {
+  console.error(error.message);
+
+  if (error.name === "CastError") {
+    return response.status(400).send({ error: error.message });
+  } else if (error.name === "ValidationError") {
+    return response.status(400).send({ error: error.message });
+  }
+
+  next(error);
+};
+
+app.use(errorHandler);
 
 app.get("/", welcomeMessage);
 app.get("/api/persons", getPersons);
@@ -109,6 +146,7 @@ app.get("/api/persons/:id", getPersonById);
 app.delete("/api/persons/:id", deletePerson);
 app.get("/info", getInfo);
 app.post("/api/persons", addPerson);
+app.put("/api/persons/:id", updatePerson);
 app.use(unknownEndpoint);
 
 const PORT = 3001;

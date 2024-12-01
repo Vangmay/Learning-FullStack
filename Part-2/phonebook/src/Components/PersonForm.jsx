@@ -4,6 +4,7 @@ import personService from "../services/personService";
 const PersonForm = ({ persons, setPersons }) => {
   const [newName, setNewName] = useState("");
   const [newPhone, setNewPhone] = useState("");
+  const [error, setError] = useState("");
   const handleAddPerson = (e) => {
     e.preventDefault();
     const newPerson = {
@@ -25,9 +26,15 @@ const PersonForm = ({ persons, setPersons }) => {
         );
       });
     } else {
-      personService.create(newPerson).then((res) => {
-        setPersons(persons.concat(res.data));
-      });
+      personService
+        .create(newPerson)
+        .then((res) => {
+          setPersons(persons.concat(res.data));
+        })
+        .catch((error) => {
+          setError(error.response.data.error);
+          console.log(error.response.data.error);
+        });
     }
 
     setNewName("");
@@ -36,6 +43,7 @@ const PersonForm = ({ persons, setPersons }) => {
 
   return (
     <>
+      {error == "" ? <></> : <div>{error}</div>}
       <form onSubmit={handleAddPerson}>
         <div>
           name:{" "}
