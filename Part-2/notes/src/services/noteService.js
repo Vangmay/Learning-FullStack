@@ -1,6 +1,6 @@
 import axios from "axios";
-const baseUrl = "http://localhost:3001/api/notes";
-
+// const baseUrl = "http://localhost:3001/api/notes";
+const baseUrl = "https://learning-fullstack.onrender.com";
 const getAll = () => {
   return axios.get(baseUrl);
 };
