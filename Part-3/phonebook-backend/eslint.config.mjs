@@ -5,11 +5,6 @@ import js from "@eslint/js";
 export default [
   js.configs.recommended,
   {
-    settings: {
-      react: {
-        version: "detect",
-      },
-    },
     files: ["**/*.js"],
     languageOptions: {
       sourceType: "commonjs",

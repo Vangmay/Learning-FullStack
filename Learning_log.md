@@ -22,4 +22,5 @@
 - Connecting backend to a mongodb database
 - Validation
 - Handling error messages using middleware
-- Completed till exercises 3.21
+- Basics of linting
+- Completed till exercises 3.22
