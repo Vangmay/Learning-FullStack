@@ -1,6 +1,6 @@
 # Learning logs
 
-- Ideal time: 30th November - 14th December
+- Ideal time: 30th November - 15th December
 
 30th Novemember
 
@@ -24,3 +24,11 @@
 - Handling error messages using middleware
 - Basics of linting
 - Completed till exercises 3.22
+
+2-4: Doing other stuff
+
+6th December
+
+- Introduction to testing in backend
+- User authentication
+- Testing with JEST
