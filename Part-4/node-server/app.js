@@ -31,7 +31,7 @@ app.use("/api/notes", notesRouter);
 app.use("/api/users", userRouter);
 app.use("/api/login", loginRouter);
 
-app.use(middleware.unknownEndpoint);
+// app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
 
 module.exports = app;

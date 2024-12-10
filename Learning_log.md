@@ -32,3 +32,12 @@
 - Introduction to testing in backend
 - User authentication
 - Testing with JEST
+
+7-8th December
+
+- Testing react apps
+
+10th December
+
+- Introduction to state management using redux
+- Introduction to reactQuery
