@@ -41,3 +41,9 @@
 
 - Introduction to state management using redux
 - Introduction to reactQuery
+
+11th December
+
+- Learned about react routing
+- More on hooks
+- Webpack
